@@ -10,3 +10,4 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+Route::get('/dashboard', fn () => 'dashboard :: ' . auth()->user()->id())->middleware('auth')->name('dashboard');
